@@ -24,7 +24,11 @@ const Option = styled.option`
 const defaulItem = ["loading"];
 const Dropdown = ({ items = defaulItem, label, onChange }) => {
   return (
-    <Select onChange={onChange} defaultValue={`Select ${label}`}>
+    <Select
+      data-test="tank-dropdown"
+      onChange={onChange}
+      defaultValue={`Select ${label}`}
+    >
       <Option disabled>Select {label}</Option>
       {items.map((item) => {
         return (

@@ -65,14 +65,18 @@ const Home = () => {
   const [activeFilters, setActiveFilters] = useState({});
 
   useEffect(() => {
+    //fetching data
     testApi.fetchData((error, data) => {
       setData(data);
     });
   }, []);
+
   const filteredData =
     useMemo(() => filterData(data, activeFilters), [data, activeFilters]) || [];
+
   const keyData = useMemo(() => groupKeys(filteredData), [filteredData]) || [];
 
+  // getting values from dropdown
   const onDropdownSelect = (event) => {
     let key = event.target.options[event.target.selectedIndex].dataset.key;
     let value = event.target.options[event.target.selectedIndex].dataset.value;
@@ -80,6 +84,7 @@ const Home = () => {
     setActiveFilters({ ...activeFilters, [key]: value });
   };
 
+  // function to remove filter
   const removeFilter = (event, key) => {
     const filters = { ...activeFilters };
     delete filters[key];
@@ -88,8 +93,8 @@ const Home = () => {
 
   return (
     <>
-      <H1>Tankomania</H1>
-      <Container>
+      <H1 data-test="home-heading">Tankomania</H1>
+      <Container data-test="home-body">
         <Left>
           {Object.keys(keyData).map((k) => (
             <Dropdown

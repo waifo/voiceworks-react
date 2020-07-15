@@ -1,4 +1,4 @@
-import { filterData } from "../utils";
+import filterData from "../utils/filterData";
 
 describe("filterData util function", () => {
   const data = [

@@ -1,3 +1,10 @@
+/**
+ * Function to group properties of object
+ * @name groupKeys
+ * @param {Array} data Object whose properties are to be grouped
+ * @returns {Array} Filtered data
+ */
+
 const groupKeys = (data = []) => {
   if (!Array.isArray(data)) throw new Error("object passed should be an array");
   if (!data.length) return data;

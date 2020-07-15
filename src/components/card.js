@@ -48,16 +48,18 @@ const Card = ({ item }) => {
   return (
     <Container data-test="component-card">
       <Item>
-        <Image src={img} loading="lazy" />
-        <Name>{name}</Name>
+        <Image src={img} loading="lazy" data-test="tank-image" />
+        <Name data-test="tank-name">{name}</Name>
         <TypeCountry>
-          <span>{type.toUpperCase()}</span>
-          <span>{country}</span>
+          <span data-test="tank-type">{type.toUpperCase()}</span>
+          <span data-test="tank-country">{country}</span>
         </TypeCountry>
 
         <Ammunition>
           {ammunition.map((a, i) => (
-            <div key={i}>{a}</div>
+            <div data-test={`tank-ammunition-${i}`} key={i}>
+              {a}
+            </div>
           ))}
         </Ammunition>
       </Item>
