@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import Colors from "./colors";
@@ -24,10 +24,8 @@ const Option = styled.option`
 const defaulItem = ["loading"];
 const Dropdown = ({ items = defaulItem, label, onChange }) => {
   return (
-    <Select onChange={onChange}>
-      <Option selected disabled>
-        Select {label}
-      </Option>
+    <Select onChange={onChange} defaultValue={`Select ${label}`}>
+      <Option disabled>Select {label}</Option>
       {items.map((item) => {
         return (
           <Option key={item} data-value={item} data-key={label}>

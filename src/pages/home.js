@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import styled, { css } from "styled-components";
 
 import { Card } from "../components";
@@ -101,8 +101,8 @@ const Home = () => {
           ))}
           {Object.keys(activeFilters).length ? <H3>Filters</H3> : null}
           <FilterDiv>
-            {Object.keys(activeFilters).map((key) => (
-              <Box>
+            {Object.keys(activeFilters).map((key, i) => (
+              <Box key={i}>
                 {activeFilters[key]}
                 <Remove onClick={(event) => removeFilter(event, key)}>
                   &#10006;

@@ -56,8 +56,8 @@ const Card = ({ item }) => {
         </TypeCountry>
 
         <Ammunition>
-          {ammunition.map((a) => (
-            <div>{a}</div>
+          {ammunition.map((a, i) => (
+            <div key={i}>{a}</div>
           ))}
         </Ammunition>
       </Item>
